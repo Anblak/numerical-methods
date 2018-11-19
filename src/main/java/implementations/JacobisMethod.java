@@ -1,12 +1,11 @@
 package implementations;
 
 import exceptions.JacobisMethodException;
-import interfaces.Method;
 
 import static utils.Actions.copyMatrix;
 import static utils.Actions.copyVector;
 
-public class JacobisMethod implements Method {
+public class JacobisMethod {
 
     private double e;
 
@@ -19,7 +18,7 @@ public class JacobisMethod implements Method {
         int iter = 0;
         double[] x = new double[n];
         double[] temp;
-        double sum = 0.0, max, q = 0.0;
+        double sum, max, q = 0.0;
         for (int i = 0; i < a.length; i++) {
             sum = 0.0;
             for (int j = 0; j < a[0].length; j++) {

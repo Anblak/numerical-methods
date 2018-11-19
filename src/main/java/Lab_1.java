@@ -24,7 +24,6 @@ public class Lab_1 {
         printMatrix(matrix);
         try {
             if (matrix.length == matrix[0].length) {
-//                System.err.println("Determinant of matrix: " + findDeterminant(matrix));
                 System.err.println("Determinant of matrix: " + method.findDeterminant(matrix));
                 System.err.println("Inverse matrix: ");
                 double[][] inverse = method.invert(matrix);

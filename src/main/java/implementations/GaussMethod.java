@@ -1,11 +1,10 @@
 package implementations;
 
 import exceptions.GaussMethodException;
-import interfaces.Method;
 
 import static utils.Actions.*;
 
-public class GaussMethod implements Method {
+public class GaussMethod {
 
     public double[] calculate(double[][] matrix, double[] vector) throws GaussMethodException {
         double[][] a = copyMatrix(matrix);
@@ -56,7 +55,7 @@ public class GaussMethod implements Method {
         int n = a.length;
         double[][] e = generateIdentityMatrix(n, n);
         double[][] x = new double[n][n];
-        double[] b = new double[n];
+        double[] b;
         for (int i = 0; i < n; i++) {
             b = calculate(a, e[i]);
             for (int j = 0; j < n; j++) {
@@ -71,7 +70,6 @@ public class GaussMethod implements Method {
         int n = a.length;
         double determinant = 1;
         double[][] m = new double[n][n];
-        double[] x = new double[n];
         for (int k = 0; k < n - 1; k++) {
 //            transform(a, k);
             for (int i = k + 1; i < n; i++) {

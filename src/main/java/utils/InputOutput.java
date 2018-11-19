@@ -13,43 +13,42 @@ public class InputOutput {
 
     public static final Scanner STRING_SCANNER = new Scanner(System.in);
     public static final Scanner DOUBLE_SCANNER = new Scanner(System.in);
-    public static final Scanner INTEGER_SCANNER = new Scanner(System.in);
 
     public static void printVector(double[] vector) {
-        System.err.print("[");
+        System.out.print("[");
         for (double i : vector) {
-            System.err.format(" %7.3f", i);
+            System.out.format(" %7.3f", i);
         }
-        System.err.println("]");
+        System.out.println("]");
     }
 
     public static void printMatrix(double[][] matrix) {
-        System.err.println("[");
+        System.out.println("[");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                System.err.format(" %7.1f", matrix[i][j]);
+                System.out.format(" %7.1f", matrix[i][j]);
             }
-            System.err.println();
+            System.out.println();
         }
-        System.err.println("]");
+        System.out.println("]");
     }
 
     public static void printMatrix(double[][] matrix, double[] vector) {
-        System.err.println("[");
+        System.out.println("[");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                System.err.format(" %7.1f", matrix[i][j]);
+                System.out.format(" %7.1f", matrix[i][j]);
             }
-            System.err.format("| " + writeDigits(vector[i]) + "\n", vector[i]);
+            System.out.format("| " + writeDigits(vector[i]) + "\n", vector[i]);
         }
-        System.err.println("]");
+        System.out.println("]");
     }
 
     public static double[][] readMatrixFromFile(String path) throws FileNotFoundException {
         Scanner sc = new Scanner(new File(path));
         List<String> lines = new ArrayList<String>();
         int rows = 0;
-        int columns = 0;
+        int columns;
         while (sc.hasNextLine()) {
             lines.add(sc.nextLine());
             ++rows;
@@ -69,7 +68,7 @@ public class InputOutput {
         for (int i = 0; i < matrix.length; i++) {
             writer.format("|");
             for (int j = 0; j < matrix[0].length; j++) {
-                writer.format(" %7.1f", matrix[i][j]);
+                writer.format(" ", matrix[i][j]);
             }
             writer.format("|\n");
         }
